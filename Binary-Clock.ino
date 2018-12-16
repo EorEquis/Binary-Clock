@@ -26,7 +26,10 @@ static unsigned long lastTick = 0; // set up a local variable to hold the last t
 
 // move forward one second every 1000 milliseconds
 
-if (millis() - lastTick >= 1000) {
+// Not 1000 because the arduino takes a while to so things.
+// After first 12 hr run, mathed [seconds lost] / [seconds elapsed] and
+// came up with an adjustment.  YMMV
+if (millis() - lastTick >= 999) {
   lastTick = millis();
   second++;
 
